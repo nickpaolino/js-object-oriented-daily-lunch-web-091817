@@ -129,6 +129,19 @@ class Employer {
   }
 
   mealTotals(){
-    
+    let allMeals = this.deliveries().map((delivery) => {
+      return delivery.meal();
+    });
+    let mealObject = {};
+
+    allMeals.forEach((meal) => {
+      mealObject[meal.id] = 0;
+    });
+
+    allMeals.forEach((meal) => {
+      mealObject[meal.id] += 1;
+    });
+
+    return mealObject;
   }
 }
